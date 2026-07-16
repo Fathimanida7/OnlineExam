@@ -174,8 +174,8 @@ def dashboard():
     username = request.form["username"]
     password = request.form["password"]
 
-    if username != "admin" or password != "admin123":
-        return "Invalid Admin Login"
+   if username != "salman" or password != "oasis":
+    return "Invalid Admin Login"
 
     # Read all students
     with open("student.json", "r") as file:
