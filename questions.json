@@ -1,0 +1,280 @@
+{
+  "mcq": [
+    {
+      "id": 1,
+      "question": "An embedded system is designed to perform:",
+      "options": [
+        "Multiple general-purpose tasks",
+        "Dedicated specific tasks",
+        "Office applications",
+        "Gaming"
+      ],
+      "answer": "Dedicated specific tasks"
+    },
+    {
+      "id": 2,
+      "question": "Which of the following is NOT a component of a microcontroller?",
+      "options": [
+        "CPU",
+        "RAM",
+        "ROM",
+        "External Monitor"
+      ],
+      "answer": "External Monitor"
+    },
+    {
+      "id": 3,
+      "question": "Which memory stores firmware permanently?",
+      "options": [
+        "RAM",
+        "Cache",
+        "Flash/ROM",
+        "Register"
+      ],
+      "answer": "Flash/ROM"
+    },
+    {
+      "id": 4,
+      "question": "Embedded C is mainly used for programming:",
+      "options": [
+        "Desktop computers",
+        "Embedded systems and microcontrollers",
+        "Mobile apps",
+        "Websites"
+      ],
+      "answer": "Embedded systems and microcontrollers"
+    },
+    {
+      "id": 5,
+      "question": "Why is while(1) used in Embedded C?",
+      "options": [
+        "To stop the program",
+        "To execute the program only once",
+        "To make the program run continuously",
+        "To increase memory"
+      ],
+      "answer": "To make the program run continuously"
+    },
+    {
+      "id": 6,
+      "question": "Which keyword is used when a variable may change due to hardware or interrupts?",
+      "options": [
+        "static",
+        "const",
+        "volatile",
+        "auto"
+      ],
+      "answer": "volatile"
+    },
+    {
+      "id": 7,
+      "question": "Which fixed-width data type stores an 8-bit unsigned integer?",
+      "options": [
+        "int",
+        "uint8_t",
+        "float",
+        "char*"
+      ],
+      "answer": "uint8_t"
+    },
+    {
+      "id": 8,
+      "question": "Which storage class retains its value between function calls?",
+      "options": [
+        "Local",
+        "Global",
+        "Static",
+        "Auto"
+      ],
+      "answer": "Static"
+    },
+    {
+      "id": 9,
+      "question": "A microcontroller is mainly used in:",
+      "options": [
+        "Supercomputers",
+        "Embedded systems",
+        "Database servers",
+        "Desktop PCs"
+      ],
+      "answer": "Embedded systems"
+    },
+    {
+      "id": 10,
+      "question": "ARM processors are based on which architecture?",
+      "options": [
+        "CISC",
+        "RISC",
+        "VLIW",
+        "EPIC"
+      ],
+      "answer": "RISC"
+    },
+    {
+      "id": 11,
+      "question": "Which ARM processor family is mainly used in microcontrollers?",
+      "options": [
+        "Cortex-A",
+        "Cortex-R",
+        "Cortex-M",
+        "ARM11"
+      ],
+      "answer": "Cortex-M"
+    },
+    {
+      "id": 12,
+      "question": "Which architecture uses separate instruction and data memories?",
+      "options": [
+        "Von Neumann",
+        "Harvard Architecture",
+        "ARM7",
+        "CISC"
+      ],
+      "answer": "Harvard Architecture"
+    },
+    {
+      "id": 13,
+      "question": "Which stage comes first in pipeline execution?",
+      "options": [
+        "Decode",
+        "Execute",
+        "Fetch",
+        "Store"
+      ],
+      "answer": "Fetch"
+    },
+    {
+      "id": 14,
+      "question": "Which register stores the address of the next instruction?",
+      "options": [
+        "LR",
+        "SP",
+        "PC",
+        "R0"
+      ],
+      "answer": "PC"
+    },
+    {
+      "id": 15,
+      "question": "Which register stores the return address during a function call?",
+      "options": [
+        "PC",
+        "LR",
+        "SP",
+        "xPSR"
+      ],
+      "answer": "LR"
+    },
+    {
+      "id": 16,
+      "question": "Which register points to the top of the stack?",
+      "options": [
+        "PC",
+        "LR",
+        "SP",
+        "R12"
+      ],
+      "answer": "SP"
+    },
+    {
+      "id": 17,
+      "question": "NVIC is used for:",
+      "options": [
+        "Memory protection",
+        "Interrupt handling",
+        "Floating-point calculations",
+        "Communication"
+      ],
+      "answer": "Interrupt handling"
+    },
+    {
+      "id": 18,
+      "question": "Which of the following is an advantage of pipelining in ARM processors?",
+      "options": [
+        "Higher power consumption",
+        "Faster instruction execution",
+        "Larger memory size",
+        "Slower processing"
+      ],
+      "answer": "Faster instruction execution"
+    },
+    {
+      "id": 19,
+      "question": "ARM TrustZone is mainly used for:",
+      "options": [
+        "Increasing processor speed",
+        "Power management",
+        "Security isolation",
+        "Memory expansion"
+      ],
+      "answer": "Security isolation"
+    },
+    {
+      "id": 20,
+      "question": "Which of the following is the brain of an embedded system?",
+      "options": [
+        "Memory Unit",
+        "Power Supply",
+        "Processor (Controller)",
+        "Output Unit"
+      ],
+      "answer": "Processor (Controller)"
+    },
+    {
+      "id": 21,
+      "question": "Which block of an embedded system stores temporary data during execution?",
+      "options": [
+        "ROM",
+        "Flash Memory",
+        "RAM",
+        "EEPROM"
+      ],
+      "answer": "RAM"
+    },
+    {
+      "id": 22,
+      "question": "Which communication interface is commonly used for communication between embedded devices?",
+      "options": [
+        "UART",
+        "HDMI",
+        "VGA",
+        "USB Mouse"
+      ],
+      "answer": "UART"
+    },
+    {
+      "id": 23,
+      "question": "Which communication protocol is commonly used for connecting multiple embedded devices using only two wires?",
+      "options": [
+        "UART",
+        "SPI",
+        "I2C",
+        "USB"
+      ],
+      "answer": "I2C"
+    },
+    {
+      "id": 24,
+      "question": "Which ARM register stores the processor status and condition flags?",
+      "options": [
+        "PC",
+        "LR",
+        "xPSR (Program Status Register)",
+        "SP"
+      ],
+      "answer": "xPSR (Program Status Register)"
+    },
+    {
+      "id": 25,
+      "question": "Which of the following is an advantage of ARM processors?",
+      "options": [
+        "High power consumption",
+        "Low power consumption",
+        "Large chip size",
+        "High heat generation"
+      ],
+      "answer": "Low power consumption"
+    }
+  ],
+  "short": []
+}

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Assessment Instructions</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-4">
+    <div class="row">
+
+<div class="col-md-9">
+
+<div class="card shadow">
+
+<div class="card-header bg-primary text-white">
+
+<div class="row">
+
+<div class="col-md-9">
+
+<h3>ONLINE ASSESSMENT </h3>
+
+<h5>MICROCONTROLLERS</h5>
+
+</div>
+
+<div class="col-md-3 text-end">
+
+</div>
+
+</div>
+
+</div>
+
+<div class="card-body">
+
+<h4 class="text-primary mb-3">
+
+Exam Details
+
+</h4>
+
+<table class="table table-bordered">
+
+<tr>
+
+<th width="35%">Exam Title</th>
+
+<td>Microcontrollers Assessment</td>
+
+</tr>
+
+<tr>
+
+<th>Course Code</th>
+
+<td>PBCST 504</td>
+
+</tr>
+
+<tr>
+
+<th>Duration</th>
+
+<td>30 Minutes</td>
+
+</tr>
+
+<tr>
+
+<th>Total Questions</th>
+
+<td>15</td>
+
+</tr>
+
+<tr>
+
+<th>Total Marks</th>
+
+<td>30</td>
+
+</tr>
+
+</table>
+
+<br>
+
+<h4 class="text-primary">
+
+Candidate Details
+
+</h4>
+
+<table class="table table-bordered">
+
+<tr>
+
+<th width="35%">Register Number</th>
+
+<td>{{ regno }}</td>
+</tr>
+
+<tr>
+
+<th>Student Name</th>
+
+<td>{{ name }}</td>
+</tr>
+
+</table>
+
+<br>
+
+<h4 class="text-primary">
+
+Instructions
+
+</h4>
+
+<ul class="list-group">
+
+<li class="list-group-item">
+Read all questions carefully.
+</li>
+
+<li class="list-group-item">
+MCQs carry one mark each.
+</li>
+
+<li class="list-group-item">
+Short answers will be evaluated manually.
+</li>
+
+<li class="list-group-item">
+First tab switch will generate a warning.
+</li>
+
+<li class="list-group-item">
+Second tab switch will automatically submit the exam.
+</li>
+
+<li class="list-group-item">
+Do not refresh or close the browser.
+</li>
+
+<li class="list-group-item">
+Ensure stable internet connection.
+</li>
+
+</ul>
+
+<form action="/exam" method="POST">
+
+    <input type="hidden" name="regno" value="{{ regno }}">
+    <input type="hidden" name="name" value="{{ name }}">
+
+    <button type="submit" class="btn btn-success btn-lg w-100 mt-4">
+        Start Assessment
+    </button>
+
+</form>
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+</body>
+
+</html>

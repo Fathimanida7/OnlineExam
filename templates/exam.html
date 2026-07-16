@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Online Assessment</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+body{
+    background:#f5f5f5;
+}
+
+.card{
+    margin-top:20px;
+}
+
+.question{
+    margin-bottom:25px;
+}
+
+.timer{
+    font-size:24px;
+    font-weight:bold;
+    color:red;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card shadow">
+
+<div class="card-header bg-primary text-white">
+
+<div class="row">
+
+<div class="col-md-8">
+
+<h3>ONLINE ASSESSMENT SYSTEM</h3>
+
+<h5>Embedded Systems Internal Assessment</h5>
+
+</div>
+
+<div class="col-md-4 text-end">
+
+Time Left
+
+<div id="timer" class="timer">
+20:00
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="card-body">
+
+<div class="row">
+
+<div class="col-md-6">
+
+<b>Register Number :</b>
+
+{{ regno }}
+
+</div>
+
+<div class="col-md-6">
+
+<b>Student Name :</b>
+
+{{ name }}
+
+</div>
+
+</div>
+
+<hr>
+
+<form action="/submit" method="POST" onsubmit="return validateExam()">
+
+<input type="hidden" name="regno" value="{{ regno }}">
+
+<input type="hidden" name="name" value="{{ name }}">
+
+<h3 class="text-primary mb-4">
+
+Multiple Choice Questions
+
+</h3>
+
+{% for q in questions.mcq %}
+
+<div class="question">
+
+<h5>
+
+{{ loop.index }}.
+
+{{ q.question }}
+
+</h5>
+
+{% for option in q.options %}
+
+<div class="form-check">
+
+<input
+
+class="form-check-input"
+
+type="radio"
+
+name="q{{ q.id }}"
+
+value="{{ option }}"
+
+required>
+
+<label class="form-check-label">
+
+{{ option }}
+
+</label>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endfor %}
+
+{% if questions.short|length > 0 %}
+
+<h3 class="text-primary mt-5">
+
+Short Answer Questions
+
+</h3>
+
+{% for q in questions.short %}
+
+<div class="question">
+
+<h5>
+
+{{ q.question }}
+
+</h5>
+
+<textarea
+
+class="form-control"
+
+rows="4"
+
+name="q{{ q.id }}"
+
+required>
+
+</textarea>
+
+</div>
+
+{% endfor %}
+
+{% endif %}
+
+<button
+
+type="submit"
+
+class="btn btn-danger btn-lg w-100">
+
+Submit Assessment
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+let totalTime = 20 * 60;
+
+let timer = setInterval(function(){
+
+let minutes = Math.floor(totalTime/60);
+
+let seconds = totalTime%60;
+
+document.getElementById("timer").innerHTML =
+
+String(minutes).padStart(2,'0')
+
++
+
+":"
+
++
+
+String(seconds).padStart(2,'0');
+
+if(totalTime<=0){
+
+clearInterval(timer);
+
+alert("Time is over. Your assessment will be submitted.");
+
+document.forms[0].submit();
+
+}
+
+totalTime--;
+
+},1000);
+
+
+
+function validateExam(){
+
+const groups={};
+
+document.querySelectorAll('input[type=radio]').forEach(function(r){
+
+groups[r.name]=true;
+
+});
+
+for(let g in groups){
+
+if(!document.querySelector('input[name="'+g+'"]:checked')){
+
+alert("⚠️ Please answer all questions before submitting the assessment.");
+
+return false;
+
+}
+
+}
+
+const textareas=document.querySelectorAll("textarea");
+
+for(let t of textareas){
+
+if(t.value.trim()==""){
+
+alert("⚠️ Please answer all questions before submitting the assessment.");
+
+t.focus();
+
+return false;
+
+}
+
+}
+
+return true;
+
+}
+
+</script>
+<script>
+
+let warningCount = 0;
+
+document.addEventListener("visibilitychange", function () {
+
+    if (document.hidden) {
+
+        warningCount++;
+
+        if (warningCount == 1) {
+
+            alert(
+                "⚠️ Warning 1 of 2\n\nYou have switched away from the assessment window.\n\nYou have ONE more warning remaining."
+            );
+
+        }
+
+        else if (warningCount == 2) {
+
+            alert(
+                "⚠️ Warning 2 of 2\n\nOne more tab switch will automatically submit your assessment."
+            );
+
+        }
+
+        else if (warningCount >= 3) {
+
+            alert(
+                "❌ Assessment Submitted\n\nYou exceeded the maximum number of tab switches.\n\nYour assessment has been submitted automatically."
+            );
+
+            document.querySelector("form").submit();
+
+        }
+
+    }
+
+});
+
+</script>
+<script>
+
+// Disable Right Click
+document.addEventListener("contextmenu", function(event){
+
+    event.preventDefault();
+
+    alert("Right click is disabled during the assessment.");
+
+});
+
+
+// Disable Keyboard Shortcuts
+document.addEventListener("keydown", function(event){
+
+    // Disable F12
+    if(event.key === "F12"){
+
+        event.preventDefault();
+
+        alert("Developer tools are disabled during the assessment.");
+
+    }
+
+    // Disable Ctrl shortcuts
+    if(event.ctrlKey){
+
+        let key = event.key.toLowerCase();
+
+        if(
+            key=="c" ||
+            key=="v" ||
+            key=="x" ||
+            key=="u" ||
+            key=="a" ||
+            key=="s"
+        ){
+
+            event.preventDefault();
+
+            alert("This action is disabled during the assessment.");
+
+        }
+
+    }
+
+});
+
+</script>
+</body>
+
+</html>
