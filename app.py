@@ -23,7 +23,7 @@ def home():
 @app.route("/instructions", methods=["POST"])
 def instructions():
 
-    regno = request.form["regno"].strip()
+    rollno = request.form["rollno"].strip()
     name = request.form["name"].strip()
 
     # Read student list
@@ -35,7 +35,7 @@ def instructions():
     for student in students:
 
         if (
-            student["regno"].strip().lower() == regno.lower()
+            student["rollno"].strip().lower() == rollno.lower()
             and student["name"].strip().lower() == name.lower()
         ):
             valid = True
@@ -55,7 +55,7 @@ def instructions():
 
     for student in submitted:
 
-        if student["regno"] == regno:
+        if student["rollno"] == rollno:
 
             return render_template(
                 "login.html",
@@ -64,7 +64,7 @@ def instructions():
 
     return render_template(
         "instructions.html",
-        regno=regno,
+        rollno=rollno,
         name=name
     )
 
@@ -76,7 +76,7 @@ def instructions():
 @app.route("/exam", methods=["POST"])
 def exam():
 
-    regno = request.form["regno"]
+    rollno = request.form["rollno"]
     name = request.form["name"]
 
     with open("questions.json", "r") as file:
@@ -84,7 +84,7 @@ def exam():
 
     return render_template(
         "exam.html",
-        regno=regno,
+        rollno=rollno,
         name=name,
         questions=questions
     )
@@ -97,7 +97,7 @@ def exam():
 @app.route("/submit", methods=["POST"])
 def submit():
 
-    regno = request.form["regno"]
+    rollno = request.form["rollno"]
     name = request.form["name"]
 
     # Read previous answers
@@ -117,7 +117,7 @@ def submit():
 
     record = {
 
-        "regno": regno,
+        "rollno": rollno,
         "name": name,
         "submitted_at": datetime.now().strftime("%d-%m-%Y %H:%M:%S"),
         "answers": student_answers
@@ -141,7 +141,7 @@ def submit():
 
     submitted.append({
 
-        "regno": regno,
+        "rollno": rollno,
         "name": name
 
     })
@@ -182,7 +182,7 @@ def dashboard():
         all_students = json.load(file)
 
     # Remove Roll No. 41 (Dropout)
-    all_students = [s for s in all_students if s["regno"] != "41"]
+    all_students = [s for s in all_students if s["rollno"] != "41"]
 
     # Read submitted answers
     with open("answers.json", "r") as file:
@@ -297,7 +297,7 @@ def dashboard_all():
         all_students = json.load(file)
 
     # Remove Roll No. 41 (Dropout)
-    all_students = [s for s in all_students if s["regno"] != "41"]
+    all_students = [s for s in all_students if s["rollno"] != "41"]
 
     with open("questions.json", "r") as file:
         data = json.load(file)
@@ -357,7 +357,7 @@ def dashboard_search():
         all_students = json.load(file)
 
     # Remove Roll No. 41 (Dropout)
-    all_students = [s for s in all_students if s["regno"] != "41"]
+    all_students = [s for s in all_students if s["rollno"] != "41"]
 
     with open("questions.json", "r") as file:
         data = json.load(file)
@@ -388,7 +388,7 @@ def dashboard_search():
             highest = score
 
         if (
-            search in student["regno"].lower()
+            search in student["rollno"].lower()
             or search in student["name"].lower()
         ):
             filtered.append(student)
@@ -452,7 +452,7 @@ def export():
                 score += 1
 
         ws.append([
-            student["regno"],
+            student["rollno"],
             student["name"],
             score,
             student["submitted_at"]
